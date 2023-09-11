@@ -32,6 +32,7 @@ jobs:
     needs: build-unminified-site
     runs-on: ubuntu 22.04
     steps:
+    - uses: actions/checkout@v4
     - name: Validate HTML from artifact
       uses: ./
       with:
