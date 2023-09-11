@@ -3,3 +3,14 @@ Commons
 Garden
 ShareAlike
 Wild
+existing
+false
+hugo
+hvm
+tarball
+assigned
+opened
+reopened
+downstream
+true
+checkout

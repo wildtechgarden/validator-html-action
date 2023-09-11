@@ -10,18 +10,64 @@ Statut IC: [![pre-commit.ci statut](https://results.pre-commit.ci/badge/github/w
 ## Matières
 
 1. [Matières](#matières)
-2. [Fonctionnalités](#fonctionnalités)
-3. [Utilisation](#utilisation)
-4. [Développement](#développement)
-5. [Colophon](#colophon)
+2. [Configuration and utilisation](#configuration-and-utilisation)
+   1. [Actions inputs variables](#actions-inputs-variables)
+   2. [Sample usage](#sample-usage)
+3. [Développement](#développement)
+4. [Colophon](#colophon)
 
-## Fonctionnalités
+## Configuration and utilisation
 
-TBD
+### Actions inputs variables
 
-## Utilisation
+| Input | Required | Default | Dit-on |
+|-------|-------|---------|---------|
+| action-workspace | yes | _(none)_ | Workspace of caller |
+| download-site-as | yes | unminified-site | GitHub Artifact qui contenu le tarball avec le site |
+| download-site-filename | yes | hugo-site.tar | Nom de tarball qui contenu le site |
+| output-directory | yes | public | subdirectory (en tarball) contenu le site a vérifier |
+| use-existing-workspace | no | false | Utiliser un workspace existent et le site créer vers un artefact |
 
-TBD
+Le tarball (défaut ``hugo-site.tar``) en l'artefact (défaut
+``unminified-site``) avec le nom en ``download-site-as`` et contenu:
+
+* Un subdirectory contenu le site (défaut: _public_, ou option
+á ``output-directory``).
+
+### Sample usage
+
+```yaml
+name: test-html-validate
+on:
+  pull_request:
+    types:
+    - assigned
+    - opened
+    - synchronize
+    - reopened
+  push:
+    branches:
+    - main
+jobs:
+  build-unminified-site:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: "Créer site avec Hugo et auditer"
+      uses: wildtechgarden/audit-build-action-hugo-dfd@main
+      with:
+        base-url: "https://www.example.com/"
+        build-for-downstream: "true"
+        source-directory: échantillon
+        use-lfs: false
+    - uses: actions/checkout@v3
+      with:
+        path: validate-html-action
+    - name: "Vérifier HTML de site"
+      uses: wildtechgarden/validator-html-action@main
+      with:
+        action-workspace: ${{ github.workspace }}/validate-html-action
+        use-existing-workspace: "true"
+```
 
 ## Développement
 
