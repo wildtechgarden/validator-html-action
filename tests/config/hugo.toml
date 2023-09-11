@@ -1,7 +1,7 @@
 # cspell:ignore pubdate
-baseURL = "https://www.module-starter.wtg-demos.ca/"
+baseURL = "https://www.validator-html-action.wtg-demos.ca/"
 copyright = "© 2023 Wild Tech 'Garden'"
-homepage = "https://www.module-starter.wtg-demos.ca/"
+homepage = "https://www.validator-html-action.wtg-demos.ca/"
 languageCode = "en"
 defaultContentLanguage = "en"
 enableGitInfo = true
@@ -18,12 +18,15 @@ timeout = "600s"
 [languages.fr]
 contentDir = "content/fr"
 languageName = "Française"
-title = "Hugo site aux manifs aux module de démarrage"
+title = "Actionne GitHub ce-qui vérifier le HTML et CSS d'une site"
 weight = 10
 
 [languages.fr.params]
 copyright = "© 2023 Wild Tech «Garden»"
-description = "Site manif aux modules de démarrage aux Wild Tech «Garden» (WTG)"
+description = """\
+Actionne GitHub ce-qui utiliser W3C `validator` a vérifier le HTML et CSS \
+d'une site"\
+"""
 
 [languages.fr.menu]
 [[languages.fr.menu.main]]
@@ -47,12 +50,14 @@ weight = 50
 [languages.en]
 contentDir = "content/en"
 languageName = "English"
-title = "Hugo demo site for WTG module starter"
+title = "GitHub action to validate HTML and CSS of site"
 weight = 1
 
 [languages.en.params]
 copyright = "© 2023 Wild Tech 'Garden'"
-description = "Demo site for Wild Tech 'Garden's (WTG) module starter"
+description = """\
+GitHub action using W3C's validator to validate the HTML and CSS of a website\
+"""
 
 [languages.en.menu]
 [[languages.en.menu.main]]
@@ -80,12 +85,12 @@ pageRef = "/demo"
 weight = 50
 
 [params]
-issueReportUrl = "https://github.com/wildtechgarden/module-starter-hugo-wtg/issues/new"
+issueReportUrl = "https://github.com/wildtechgarden/validator-html-action/issues/new"
 mainSections = ["demo","doc"]
 redirectsDomains = [
-	"module-starter.wtg-demos.ca",
-	"module-starter.wtg-demos.com",
-	"www.module-starter.wtg-demos.com"
+	"validator-html-action.wtg-demos.ca",
+	"validator-html-action.wtg-demos.com",
+	"www.validator-html-action.wtg-demos.com"
 ]
 redirectsExtra = []
 staticFallback = false
@@ -164,7 +169,7 @@ target = "static"
 
 [[module.imports]]
 ignoreImports = true
-path = "github.com/wildtechgarden/module-starter-hugo-wtg"
+path = "github.com/wildtechgarden/validator-html-action"
 
 [[module.imports.mounts]]
 source = "static"
@@ -191,38 +196,28 @@ source = "archetypes"
 target = "archetypes"
 
 [[module.imports.mounts]]
-source = "content/en/demo/module-starter"
-target = "content/demo/module-starter"
+source = "content/en/doc/validator-html-action"
+target = "content/doc/validator-html-action"
 lang = "en"
 
 [[module.imports.mounts]]
-source = "content/fr/demo/module-starter"
-target = "content/demo/module-starter"
-lang = "fr"
-
-[[module.imports.mounts]]
-source = "content/en/doc/module-starter"
-target = "content/doc/module-starter"
-lang = "en"
-
-[[module.imports.mounts]]
-source = "content/fr/doc/module-starter"
-target = "content/doc/module-starter"
+source = "content/fr/doc/validator-html-action"
+target = "content/doc/validator-html-action"
 lang = "fr"
 
 [[module.imports.mounts]]
 source = "README.md"
-target = "content/doc/module-starter/README.md"
+target = "content/doc/validator-html-action/README.md"
 lang = "en"
 
 [[module.imports.mounts]]
 source = "README.fr.md"
-target = "content/doc/module-starter/README.md"
+target = "content/doc/validator-html-action/README.md"
 lang = "fr"
 
 [[module.imports.mounts]]
 source = "LICENSE"
-target = "content/doc/module-starter/LICENSE"
+target = "content/doc/validator-html-action/LICENSE"
 
 [[module.imports]]
 ignoreImports = true

@@ -1,9 +1,10 @@
-# Module nouveau á l'Hugo au Wild Tech 'Garden'
+# Actionne GitHub ce-qui vérifier le HTML et CSS d'une site
 
-Décrit: TBD  
-URL du référentiel: <https://github.com/wildtechgarden/module-starter-hugo-wtg>\
-Site: <https://www.module-starter.wtg-demos.ca>\
-Statut IC: [![pre-commit.ci statut](https://results.pre-commit.ci/badge/github/wildtechgarden/module-starter-hugo-wtg/main.svg)](https://results.pre-commit.ci/latest/github/wildtechgarden/module-starter-hugo-wtg/main)
+Décrit: Actionne GitHub ce-qui utiliser W3C `validator` a vérifier le HTML et CSS
+d'une site  
+URL du référentiel: <https://github.com/wildtechgarden/validator-html-action>\
+Site: <https://www.validator-html-action.wtg-demos.ca>  
+Statut IC: TBD
 
 ## Matières
 

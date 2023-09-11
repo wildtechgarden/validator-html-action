@@ -1,9 +1,10 @@
-# New Hugo module starter by Wild Tech 'Garden'
+# GitHub action to validate HTML and CSS of site
 
-Description: TBD  
-Repository URL: <https://github.com/wildtechgarden/module-starter-hugo-wtg>\
-Site: <https://www.module-starter.wtg-demos.ca>  
-CI Status: [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wildtechgarden/module-starter-hugo-wtg/main.svg)](https://results.pre-commit.ci/latest/github/wildtechgarden/module-starter-hugo-wtg/main)
+Description: GitHub action using W3C's validator to validate the HTML and CSS of
+a website  
+Repository URL: <https://github.com/wildtechgarden/validator-html-action>  
+Site: <https://www.validator-html-action.wtg-demos.ca>  
+CI Status: TBD
 
 ## Contents
 

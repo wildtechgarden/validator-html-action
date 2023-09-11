@@ -24,7 +24,7 @@ rm -rf "${SITEROOT}/public"
 
 echo "Building for audit in ${SITEROOT}/public for environment ${HUGO_ENV:-development}"
 
-export HUGO_MODULE_REPLACEMENTS="github.com/wildtechgarden/module-starter-hugo-wtg -> $(pwd)"
+export HUGO_MODULE_REPLACEMENTS="github.com/wildtechgarden/validator-html-action -> $(pwd)"
 export HUGO_RESOURCEDIR="$(pwd)/resources"
 
 # shellcheck disable=2086

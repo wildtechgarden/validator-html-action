@@ -1,6 +1,6 @@
-name = "New Hugo module by Wild Tech 'Garden'"
+name = "GitHub Action using W3C validator for HTML and CSS"
 copyright = "© 2023 Wild Tech 'Garden'"
-description = "TBD"
+description = "GitHub action using W3C's validator to validate the HTML and CSS of a website"
 
 [module]
 [module.hugoVersion]
