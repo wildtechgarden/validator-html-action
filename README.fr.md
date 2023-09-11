@@ -4,7 +4,8 @@ Décrit: Actionne GitHub ce-qui utiliser W3C `validator` a vérifier le HTML et 
 d'une site  
 URL du référentiel: <https://github.com/wildtechgarden/validator-html-action>\
 Site: <https://www.validator-html-action.wtg-demos.ca>  
-Statut IC: TBD
+Statut IC: [![pre-commit.ci statut](https://results.pre-commit.ci/badge/github/wildtechgarden/validator-html-action/main.svg)](https://results.pre-commit.ci/latest/github/wildtechgarden/validator-html-action/main)
+[![build-audit](https://github.com/wildtechgarden/validator-html-action/actions/workflows/build-audit.yml/badge.svg)](https://github.com/wildtechgarden/validator-html-action/actions/workflows/build-audit.yml)
 
 ## Matières
 
