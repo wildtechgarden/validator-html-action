@@ -53,6 +53,7 @@ jobs:
   build-unminified-site:
     runs-on: ubuntu-20.04
     steps:
+    - uses: actions/checkout@v4
     - name: "Build site with Hugo and audit"
       uses: wildtechgarden/audit-build-action-hugo-dfd@main
       with:
@@ -60,13 +61,9 @@ jobs:
         build-for-downstream: "true"
         source-directory: exampleSite
         use-lfs: false
-    - uses: actions/checkout@v3
-      with:
-        path: validate-html-action
     - name: "Validate HTML of statically generated website"
       uses: wildtechgarden/validator-html-action@main
       with:
-        action-workspace: ${{ github.workspace }}/validate-html-action
         use-existing-workspace: "true"
 ```
 
