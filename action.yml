@@ -78,6 +78,6 @@ runs:
       OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
       # yamllint disable rule:line-length
     run: |
-      java -jar jar/vnu.jar --css --skip-non-css --Werror ${OUTPUT_DIRECTORY}
+      java -jar jar/vnu.jar --skip-non-css --Werror ${OUTPUT_DIRECTORY}
     # yamllint enable
 ...
