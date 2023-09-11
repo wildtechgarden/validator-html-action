@@ -22,6 +22,7 @@ jobs:
         hugo-version: latest
         upload-site-as: unminified-site
         source-directory: tests/config
+    - uses: actions/checkout@v4
     - name: Validate HTML in output-directory
       uses: ./
       with:
