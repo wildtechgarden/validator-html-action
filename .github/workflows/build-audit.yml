@@ -1,5 +1,5 @@
 ---
-# yamllint disable rule:key-ordering
+# yamllint disable rule:key-ordering rule:line-length
 name: build-audit
 on: # yamllint disable-line
   pull_request:
@@ -11,16 +11,25 @@ on: # yamllint disable-line
     - synchronize
     - reopened
 jobs:
-  # yamllint disable rule:line-length
-  audit-only:
+  build-unminified-site:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
-    - name: Run audit-build-action-hugo using config from tests/config
+    - name: Build site with Hugo and audit
       uses: wildtechgarden/audit-build-action-hugo@main
       with:
         base-url: "https://example.com/"
         config-file: hugo.toml
         hugo-version: latest
+        upload-site-as: unminified-site
         source-directory: tests/config
+    - name: Validate HTML in output-directory
+      uses: ./
+      with:
+        use-existing-workspace: "true"
+  validate-html-artifact:
+    needs: build-unminified-site
+    runs-on: ubuntu 22.04
+    steps:
+    - name: Validate HTML from artifact
+      uses: ./
 ...

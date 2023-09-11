@@ -1,0 +1,80 @@
+---
+# yamllint disable rule:key-ordering
+# cspell:ignore OUTPUTDIR endswith
+name: DFD Validate HTML (Hugo)
+author: Daniel F. Dickinson
+description: Validate HTML and CSS of a static site
+branding:
+  color: blue
+  icon: check-circle
+inputs:
+  download-site-as:
+    description: Artifact containing the Hugo site
+    required: true
+    default: unminified-site
+  download-site-filename:
+    description: Filename for tarball of site to download from artifact
+    required: true
+    default: hugo-site.tar
+  output-directory:
+    description: Location of output site
+    required: true
+    default: public
+  use-existing-workspace:
+    description: Use an existing checkout and built site instead of artifact
+    required: false
+    default: "false"
+runs:
+  using: composite
+  steps:
+  - uses: actions/download-artifact@v3
+    if: inputs.use-existing-workspace != 'true'
+    with:
+      name: ${{ inputs.download-site-as }}
+  - name: Extract site and configs
+    if: inputs.use-existing-workspace != 'true'
+    shell: bash
+    env:
+      DOWNLOAD_SITE_FILENAME: ${{ inputs.download-site-filename }}
+    run: tar -xf "${DOWNLOAD_SITE_FILENAME}"
+  - name: Install Java
+    shell: bash
+    run: |
+      sudo apt-get update
+      sudo apt-get install default-jre
+  - name: Get validator
+    shell: bash
+    env:
+      GITHUB_WORKSPACE: ${{ github.workspace }}
+      # Avoid runner API rate-limiting
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    run: |
+      curl --header "Authorization: Bearer $GH_TOKEN" -o vnu.jar.zip -sL \
+      $(curl --request GET --header "Accept: application/vnd.github+json" \
+      --header "Authorization: Bearer $GH_TOKEN" -s --url \
+      https://api.github.com/repos/validator/validator/releases/latest | jq -r \
+      ". as \$artifacts | .tag_name as \$version | \
+      \$artifacts | .assets | .[] | [.name, .browser_download_url] | \
+      if (.[0] | contains(\$version) and contains(\"vnu.jar\") and \
+      endswith(\"zip\")) \
+      then .[1] \
+      else empty \
+      end") && unzip vnu.jar.zip && \
+      mkdir -p jar && mv dist/vnu.jar jar/ && mv dist/index.html jar/ && \
+      mv dist/README.md jar/ && rm -rf dist && rm -f vnu.jar.zip
+  - name: Validate site HTML
+    shell: bash
+    env:
+      OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
+      # yamllint disable rule:line-length
+    run: |
+      java -jar jar/vnu.jar --Werror --skip-non-html ${OUTPUT_DIRECTORY}
+  - name: Validate site CSS
+    shell: bash
+    env:
+      OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
+      # yamllint disable rule:line-length
+    run: |
+      java -jar jar/vnu.jar --css --skip-non-css --Werror ${OUTPUT_DIRECTORY}
+    # yamllint enable
+...
