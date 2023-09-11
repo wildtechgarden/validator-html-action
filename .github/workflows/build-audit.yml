@@ -14,6 +14,7 @@ jobs:
   build-unminified-site:
     runs-on: ubuntu-22.04
     steps:
+    - uses: actions/checkout@v4
     - name: Build site with Hugo and audit
       uses: wildtechgarden/audit-build-action-hugo@main
       with:
@@ -22,7 +23,6 @@ jobs:
         hugo-version: latest
         upload-site-as: unminified-site
         source-directory: tests/config
-    - uses: actions/checkout@v4
     - name: Validate HTML in output-directory
       uses: ./
       with:
