@@ -64,6 +64,7 @@ jobs:
     - name: "Validate HTML of statically generated website"
       uses: wildtechgarden/validator-html-action@main
       with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         use-existing-workspace: "true"
 ```
 

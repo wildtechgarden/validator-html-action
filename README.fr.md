@@ -63,6 +63,7 @@ jobs:
     - name: "Vérifier HTML de site"
       uses: wildtechgarden/validator-html-action@main
       with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         use-existing-workspace: "true"
 ```
 
