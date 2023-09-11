@@ -4,7 +4,7 @@ name: build-audit
 on: # yamllint disable-line
   pull_request:
     branches:
-    - main-disabled
+    - main
     types:
     - assigned
     - opened
