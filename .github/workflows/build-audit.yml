@@ -26,6 +26,7 @@ jobs:
     - name: Validate HTML in output-directory
       uses: ./
       with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         use-existing-workspace: "true"
   validate-html-artifact:
     needs: build-unminified-site
@@ -33,4 +34,6 @@ jobs:
     steps:
     - name: Validate HTML from artifact
       uses: ./
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
 ...

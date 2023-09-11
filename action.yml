@@ -20,6 +20,9 @@ inputs:
     description: Location of output site
     required: true
     default: public
+  repo-token:
+    description: GITHUB_TOKEN
+    required: true
   use-existing-workspace:
     description: Use an existing checkout and built site instead of artifact
     required: false
@@ -47,7 +50,7 @@ runs:
     env:
       GITHUB_WORKSPACE: ${{ github.workspace }}
       # Avoid runner API rate-limiting
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ inputs.repo-token }}
     run: |
       curl --header "Authorization: Bearer $GH_TOKEN" -o vnu.jar.zip -sL \
       $(curl --request GET --header "Accept: application/vnd.github+json" \
