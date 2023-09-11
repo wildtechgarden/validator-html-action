@@ -10,15 +10,15 @@ branding:
 inputs:
   download-site-as:
     description: Artifact containing the Hugo site
-    required: false
+    required: true
     default: unminified-site
   download-site-filename:
     description: Filename for tarball of site to download from artifact
-    required: false
+    required: true
     default: hugo-site.tar
   output-directory:
     description: Location of output site
-    required: false
+    required: true
     default: public
   repo-token:
     description: GITHUB_TOKEN
