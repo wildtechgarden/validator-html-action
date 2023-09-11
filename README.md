@@ -22,10 +22,10 @@ CI Status: [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/w
 
 | Input | Required | Default | Meaning |
 |-------|-------|---------|---------|
-| action-workspace | yes | _(none)_ | Workspace of caller |
 | download-site-as | yes | unminified-site | GitHub Artifact containing a tarball with the site |
 | download-site-filename | yes | hugo-site.tar | Name of tarball containing the site |
 | output-directory | yes | public | subdirectory (in tarball) containing the site to validate |
+| repo-token | yes | _(none)_ | GITHUB_TOKEN |
 | use-existing-workspace | no | false | Use an existing checkout and built site instead of artifact |
 
 The tarball (default ``hugo-site.tar``) in the artifact (default

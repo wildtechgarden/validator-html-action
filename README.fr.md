@@ -22,11 +22,11 @@ Statut IC: [![pre-commit.ci statut](https://results.pre-commit.ci/badge/github/w
 
 | Input | Required | Default | Dit-on |
 |-------|-------|---------|---------|
-| action-workspace | yes | _(none)_ | Workspace of caller |
-| download-site-as | yes | unminified-site | GitHub Artifact qui contenu le tarball avec le site |
-| download-site-filename | yes | hugo-site.tar | Nom de tarball qui contenu le site |
-| output-directory | yes | public | subdirectory (en tarball) contenu le site a vérifier |
-| use-existing-workspace | no | false | Utiliser un workspace existent et le site créer vers un artefact |
+| download-site-as | oui | unminified-site | GitHub Artifact qui contenu le tarball avec le site |
+| download-site-filename | oui | hugo-site.tar | Nom de tarball qui contenu le site |
+| output-directory | oui | public | subdirectory (en tarball) contenu le site a vérifier |
+| repo-token | oui | _(none)_ | GITHUB_TOKEN |
+| use-existing-workspace | non | false | Utiliser un workspace existent et le site créer vers un artefact |
 
 Le tarball (défaut ``hugo-site.tar``) en l'artefact (défaut
 ``unminified-site``) avec le nom en ``download-site-as`` et contenu:
