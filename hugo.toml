@@ -4,5 +4,5 @@ description = "GitHub action using W3C's validator to validate the HTML and CSS 
 
 [module]
 [module.hugoVersion]
-min = "0.117.0"
+min = "0.112.7"
 extended = false
